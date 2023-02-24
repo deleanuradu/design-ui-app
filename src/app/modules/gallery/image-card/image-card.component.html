@@ -1,9 +1,9 @@
 <div class="m-8 max-w-sm rounded-lg overflow-hidden drop-shadow-lg bg-white dark:bg-slate-700 hover:scale-105 hover:ease-in duration-200">
-  <img class="w-full" [src]="image?.imageUrl" alt="Sunset in the mountains">
+  <img class="bg-cover" [src]="image?.urls?.small" alt="">
   <div class="px-6 py-4">
-    <div class="font-bold text-xl mb-2">{{image?.artistName}}</div>
-    <p class="text-gray-700 text-base">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus quia, nulla! Maiores et perferendis eaque, exercitationem praesentium nihil.
+    <div class="font-bold text-xl mb-2 dark:text-white">{{ getFullName(image!.user) }}</div>
+    <p class="text-gray-700 text-base dark:text-white">
+      {{ getDescription(image!) }}
     </p>
   </div>
   <div class="px-6 pt-4 pb-2">

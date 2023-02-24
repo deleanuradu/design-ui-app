@@ -1,13 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { CardImageDataModel } from "../../../models/card-image-data.model";
+import { UnsplashService } from "../../../services/unsplash.service";
+import { Subscription } from "rxjs";
+import { UnsplashElementModel } from "../../../models/unsplash-element.model";
 
 @Component({
   selector: 'app-gallery-page-page',
   templateUrl: './gallery-page.component.html',
   styleUrls: ['./gallery-page.component.scss']
 })
-export class GalleryPageComponent {
-  imageCollection: CardImageDataModel[] = [
+export class GalleryPageComponent implements OnDestroy{
+  subscription: Subscription;
+  mockImageCollection: CardImageDataModel[] = [
     {
       imageUrl: 'https://fastly.picsum.photos/id/15/2500/1667.jpg?hmac=Lv03D1Y3AsZ9L2tMMC1KQZekBVaQSDc1waqJ54IHvo4',
       artistName: 'Paul Jarvis'
@@ -41,4 +45,15 @@ export class GalleryPageComponent {
       artistName: 'Jeffrey Kam'
     }
   ]
+  imageCollection: UnsplashElementModel[] = [];
+
+  constructor(public unsplashService: UnsplashService) {
+    this.subscription = this.unsplashService.getRandomPhotos(10).subscribe(result => {
+      this.imageCollection = result;
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
+  }
 }

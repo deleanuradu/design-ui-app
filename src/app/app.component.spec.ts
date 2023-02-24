@@ -20,16 +20,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'design-ui-app'`, () => {
+  it(`should have as title 'sight-sea-app'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('design-ui-app');
+    expect(app.title).toEqual('sight-sea-app');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('design-ui-app app is running!');
+    expect(compiled.querySelector('.content span')?.textContent).toContain('sight-sea-app app is running!');
   });
 });

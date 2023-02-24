@@ -10,6 +10,7 @@ import { TopBarComponent } from './modules/home/top-bar/top-bar.component';
 import { SideBarComponent } from './modules/home/side-bar/side-bar.component';
 import { LandingPageComponent } from './modules/home/landing-page/landing-page.component';
 import { ImageCardComponent } from './modules/gallery/image-card/image-card.component';
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { ImageCardComponent } from './modules/gallery/image-card/image-card.comp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

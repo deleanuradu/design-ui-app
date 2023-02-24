@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "design-ui-app": {
+    "sight-sea-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/design-ui-app",
+            "outputPath": "dist/sight-sea-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "design-ui-app:build:production"
+              "browserTarget": "sight-sea-app:build:production"
             },
             "development": {
-              "browserTarget": "design-ui-app:build:development"
+              "browserTarget": "sight-sea-app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "design-ui-app:build"
+            "browserTarget": "sight-sea-app:build"
           }
         },
         "test": {

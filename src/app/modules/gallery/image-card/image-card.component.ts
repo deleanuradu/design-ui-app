@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { CardImageDataModel } from "../../../models/card-image-data.model";
+import { UnsplashElementModel, User } from "../../../models/unsplash-element.model";
 
 @Component({
   selector: 'app-image-card',
@@ -7,5 +7,21 @@ import { CardImageDataModel } from "../../../models/card-image-data.model";
   styleUrls: ['./image-card.component.scss']
 })
 export class ImageCardComponent {
-  @Input() image: CardImageDataModel | undefined;
+  @Input() image: UnsplashElementModel | undefined;
+
+  getFullName(artist: User): string {
+    if (artist.name.includes(artist.last_name)) {
+      return artist.name;
+    } else {
+      if (artist.last_name) {
+        return artist.name + ' ' + artist.last_name;
+      } else {
+        return artist.name;
+      }
+    }
+  }
+
+  getDescription(image: UnsplashElementModel): string {
+    return image.description? image.description : image.alt_description;
+  }
 }
