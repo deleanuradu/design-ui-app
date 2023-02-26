@@ -1,5 +1,18 @@
-<div *ngIf="visible" class="flex flex-row items-center bg-amber-200">
-  <div class="fixed h-80 w-80">
-
+<div *ngIf="visible" (click)="close.emit()" class="fixed h-screen w-screen flex flex-row items-center justify-center
+z-1000 bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-40 bg-white
+dark:bg-slate-900 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm
+dark:bg-opacity-40">
+  <div class="h-5/6 mt-16 mx-10 mb-5 rounded-lg drop-shadow-2xl bg-clip-padding backdrop-filter backdrop-blur-sm bg-opacity-80 bg-white
+dark:bg-slate-800 dark:bg-clip-padding dark:backdrop-filter dark:backdrop-blur-sm
+dark:bg-opacity-80 border border-opacity-70 border-gray-200 dark:border-slate-700 dark:border-opacity-70" (click)="$event.stopPropagation()">
+    <div class="flex flex-row justify-between items-center">
+      <div class="mx-4 my-2 font-bold text-xl dark:text-white">Image Details</div>
+      <fa-icon [icon]="faTimes" (click)="close.emit()"
+               class="mx-4 my-2 cursor-pointer hover:scale-110 hover:ease-in duration-150 dark:text-white" size="xl">
+      </fa-icon>
+    </div>
+    <div class="h-5/6">
+      <img class="mx-4 mb-4 max-h-full rounded-lg" [src]="image?.urls?.full" alt="">
+    </div>
   </div>
 </div>

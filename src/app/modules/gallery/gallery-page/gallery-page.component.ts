@@ -16,6 +16,7 @@ export class GalleryPageComponent implements OnDestroy {
   detailsModalVisible = false;
 
   constructor(public unsplashService: UnsplashService) {
+    this.shuffle(this.imageCollection);
     this.subscription = this.unsplashService.getRandomPhotos(10).subscribe(result => {
       this.imageCollection = result;
     });
@@ -28,5 +29,23 @@ export class GalleryPageComponent implements OnDestroy {
   selectImage(image: UnsplashElementModel): void {
     this.selectedImage = image;
     this.detailsModalVisible = true;
+  }
+
+   shuffle(array: Array<any>): Array<any> {
+    let currentIndex = array.length,  randomIndex;
+
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+
+      // And swap it with the current element.
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
   }
 }
