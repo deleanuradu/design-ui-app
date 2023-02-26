@@ -1,6 +1,7 @@
 <div class="bg-gradient-to-r from-orange-400 to-amber-200
 flex flex-row justify-evenly items-start flex-wrap py-24 dark:bg-gradient-to-r dark:from-slate-900 dark:to-slate-700">
   <div *ngFor="let image of imageCollection">
-    <app-image-card [image]="image"></app-image-card>
+    <app-image-card class="cursor-pointer" [image]="image" (click)="selectImage(image)"></app-image-card>
   </div>
 </div>
+<app-details-modal [visible]="detailsModalVisible" [image]="selectedImage"></app-details-modal>

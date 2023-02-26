@@ -12,6 +12,7 @@ import { LandingPageComponent } from './modules/home/landing-page/landing-page.c
 import { ImageCardComponent } from './modules/gallery/image-card/image-card.component';
 import { HttpClientModule } from "@angular/common/http";
 import { GalleryComponent } from './modules/gallery/gallery.component';
+import { DetailsModalComponent } from './modules/gallery/details-modal/details-modal.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { GalleryComponent } from './modules/gallery/gallery.component';
     SideBarComponent,
     LandingPageComponent,
     ImageCardComponent,
-    GalleryComponent
+    GalleryComponent,
+    DetailsModalComponent
   ],
   imports: [
     BrowserModule,
