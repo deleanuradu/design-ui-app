@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { GalleryPageComponent } from "./modules/gallery/gallery-page/gallery-page.component";
-import { LandingPageComponent } from "./modules/home/landing-page/landing-page.component";
+import { HomeComponent } from "./modules/home/home.component";
+import { GalleryComponent } from "./modules/gallery/gallery.component";
 
 const routes: Routes = [
-  { path: 'landing', component: LandingPageComponent },
-  { path: 'gallery', component: GalleryPageComponent },
-  { path: '**', component: LandingPageComponent },
+  {path: 'home', component: HomeComponent},
+  {path: 'gallery', component: GalleryComponent},
+  {path: '**', component: HomeComponent},
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

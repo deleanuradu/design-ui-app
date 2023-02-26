@@ -3,9 +3,10 @@ import { CardImageDataModel } from "../../../models/card-image-data.model";
 import { UnsplashService } from "../../../services/unsplash.service";
 import { Subscription } from "rxjs";
 import { UnsplashElementModel } from "../../../models/unsplash-element.model";
+import { UNSPLASH_MOCKS } from "../../../utils/mocks";
 
 @Component({
-  selector: 'app-gallery-page-page',
+  selector: 'app-gallery-page',
   templateUrl: './gallery-page.component.html',
   styleUrls: ['./gallery-page.component.scss']
 })
@@ -45,9 +46,10 @@ export class GalleryPageComponent implements OnDestroy{
       artistName: 'Jeffrey Kam'
     }
   ]
-  imageCollection: UnsplashElementModel[] = [];
+  imageCollection: UnsplashElementModel[] = UNSPLASH_MOCKS as UnsplashElementModel[];
 
   constructor(public unsplashService: UnsplashService) {
+    console.log(this.imageCollection.length);
     this.subscription = this.unsplashService.getRandomPhotos(10).subscribe(result => {
       this.imageCollection = result;
     });

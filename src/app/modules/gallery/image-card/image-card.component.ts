@@ -10,7 +10,7 @@ export class ImageCardComponent {
   @Input() image: UnsplashElementModel | undefined;
 
   getFullName(artist: User): string {
-    if (artist.name.includes(artist.last_name)) {
+    if (artist.name.includes(artist.last_name as string)) {
       return artist.name;
     } else {
       if (artist.last_name) {
